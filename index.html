@@ -12,6 +12,11 @@
   </head>
   <body>
     <canvas id="matrixRain" aria-hidden="true"></canvas>
+    <div class="page-transition" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
     <header class="site-header">
       <div class="scan-cursor" aria-hidden="true"></div>
@@ -25,14 +30,13 @@
         <a href="#works">WORKS</a>
         <a href="#repos">REPOS</a>
         <a href="#otmad">OTOMAD</a>
-        <a href="#memes">MEMES</a>
         <a href="#timeline">TRACE</a>
       </nav>
       <a class="login-link" href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">GITHUB</a>
     </header>
 
     <main id="top">
-      <section class="hero">
+      <section class="hero page-section">
         <div class="hero-copy">
           <p class="eyebrow">XUE RUO MI / HAOTONG MACHINE / VITA-CHARA</p>
           <h1>薛若米正在把互联网生涯编译成昊通地图。</h1>
@@ -69,13 +73,19 @@
             <p>&gt; status matrix_archive_online</p>
           </div>
         </aside>
+        <div class="hero-meme-cloud" aria-hidden="true">
+          <img class="meme-float float-approve" src="assets/memes-normalized/b8f2d1850317c1223b8869b47ba6b0b7.jpg" alt="">
+          <img class="meme-float float-execute" src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" alt="">
+          <img class="meme-float float-observe" src="assets/memes-normalized/F7D01CA3635DDC8C51B4F1205611FC2C.gif" alt="">
+        </div>
       </section>
 
-      <section id="signal" class="matrix-frame section">
+      <section id="signal" class="matrix-frame section page-section">
         <div class="frame-corners" aria-hidden="true"></div>
         <div class="bili-panel">
           <div class="bili-image">
             <img src="assets/bilibili-home.png" alt="昊通机械 B 站主页截图">
+            <img class="section-meme signal-meme" src="assets/memes-normalized/0388AEE1E9324FAD41496672388382CF.gif" alt="贴脸输入反应">
           </div>
           <div class="bili-data">
             <p class="eyebrow">BILIBILI SIGNAL CAPTURE</p>
@@ -90,17 +100,23 @@
               <span><strong>2.1w</strong>获赞</span>
               <span><strong>33.7w</strong>播放</span>
             </div>
+            <div class="reaction-strip" aria-label="B站内容反应">
+              <span><img src="assets/memes-normalized/92ad09ed49f26270b43a292b061d33af.gif" alt="">YES</span>
+              <span><img src="assets/memes-normalized/45e7ac1556f5e242a6b6b75d47a9d122.jpg" alt="">SHOCK</span>
+              <span><img src="assets/memes-normalized/26750ec406ac063e0272af5ea70e26ea.gif" alt="">RUN</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="works" class="section">
+      <section id="works" class="section page-section">
         <div class="section-heading">
           <p class="eyebrow">WORKS / BUILD LOG</p>
           <h2>作品节点</h2>
         </div>
         <div class="node-grid">
           <article class="node-card is-featured" data-node="wallpaper">
+            <img class="card-meme" src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" alt="执行反应">
             <span class="node-code">NODE 01</span>
             <h3>HTWallpaper</h3>
             <p>
@@ -110,18 +126,21 @@
             <a href="https://github.com/ViTa-Chara/HTWallpaper" target="_blank" rel="noreferrer">OPEN REPO</a>
           </article>
           <article class="node-card" data-node="bili">
+            <img class="card-meme" src="assets/memes-normalized/26750ec406ac063e0272af5ea70e26ea.gif" alt="奔跑反应">
             <span class="node-code">NODE 02</span>
             <h3>音 MAD / 视频内容库</h3>
             <p>主页截图里能看到“新星计划 参赛作品”、Big Brother 采样、Liar NASA、Apollo 后续等音画实验。</p>
             <a href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer">OPEN SPACE</a>
           </article>
           <article class="node-card" data-node="github">
+            <img class="card-meme" src="assets/memes-normalized/cb9732bcb239e8cebf706cd1651ed237.jpg" alt="盘算反应">
             <span class="node-code">NODE 03</span>
             <h3>GitHub 轨迹</h3>
             <p>从 2021 年建立公开身份，到 mdf、贡献蛇、HTWallpaper 与本站，代码坐标逐渐成形。</p>
             <a href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">OPEN PROFILE</a>
           </article>
           <article class="node-card" data-node="qzone">
+            <img class="card-meme" src="assets/memes-normalized/2bd85f2ee478f56d711cf2bcfb036168.gif" alt="待机反应">
             <span class="node-code">NODE 04</span>
             <h3>QQ 空间旧城区</h3>
             <p>QQ 空间是更早的互联网生活档案，保存熟人社区里的说说、相册与个人记忆。</p>
@@ -130,7 +149,7 @@
         </div>
       </section>
 
-      <section id="repos" class="section repo-section">
+      <section id="repos" class="section repo-section page-section">
         <div class="section-heading">
           <p class="eyebrow">GITHUB / PUBLIC DEV MATRIX</p>
           <h2>参与开发库</h2>
@@ -148,42 +167,49 @@
         </div>
         <div class="repo-grid">
           <article class="repo-card" data-kind="owned frontend">
+            <img class="repo-meme" src="assets/memes-normalized/cb9732bcb239e8cebf706cd1651ed237.jpg" alt="规划反应">
             <span>CSS / HTML / JS</span>
             <h3>ViTa-Chara/vita-chara.github.io</h3>
             <p>本站源码。把个人名义、公司身份、B 站内容、QQ 空间与 GitHub 作品整合为数字矩阵主页。</p>
             <a href="https://github.com/ViTa-Chara/vita-chara.github.io" target="_blank" rel="noreferrer">OPEN</a>
           </article>
           <article class="repo-card" data-kind="owned app audio">
+            <img class="repo-meme" src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" alt="执行反应">
             <span>Python / FastAPI / FFmpeg</span>
             <h3>ViTa-Chara/HTWallpaper</h3>
             <p>视频转静态壁纸工具，支持抽帧、色调过滤、多屏、定时轮换、托盘运行和系统壁纸集成。</p>
             <a href="https://github.com/ViTa-Chara/HTWallpaper" target="_blank" rel="noreferrer">OPEN</a>
           </article>
           <article class="repo-card" data-kind="owned profile">
+            <img class="repo-meme" src="assets/memes-normalized/b8f2d1850317c1223b8869b47ba6b0b7.jpg" alt="可以反应">
             <span>Profile / GitHub Actions</span>
             <h3>ViTa-Chara/ViTa-Chara</h3>
             <p>个人 GitHub profile 仓库，贡献蛇动画记录持续开发的轨迹。</p>
             <a href="https://github.com/ViTa-Chara/ViTa-Chara" target="_blank" rel="noreferrer">OPEN</a>
           </article>
           <article class="repo-card" data-kind="owned archive">
+            <img class="repo-meme" src="assets/memes-normalized/45e7ac1556f5e242a6b6b75d47a9d122.jpg" alt="震惊反应">
             <span>Early Repo</span>
             <h3>ViTa-Chara/mdf</h3>
             <p>2022 年公开仓库，作为早期代码坐标收录进开发矩阵。</p>
             <a href="https://github.com/ViTa-Chara/mdf" target="_blank" rel="noreferrer">OPEN</a>
           </article>
           <article class="repo-card" data-kind="external audio app">
+            <img class="repo-meme" src="assets/memes-normalized/92ad09ed49f26270b43a292b061d33af.gif" alt="同意反应">
             <span>TypeScript / Rust</span>
             <h3>ARounder-183/HiFiShifter</h3>
             <p>用于人力 Vocaloid 或人声修音的应用。公开 commit 显示参与 WORLD 拉伸尾音、触控板操作等修复。</p>
             <a href="https://github.com/ARounder-183/HiFiShifter" target="_blank" rel="noreferrer">OPEN</a>
           </article>
           <article class="repo-card" data-kind="external frontend">
+            <img class="repo-meme" src="assets/memes-normalized/0388AEE1E9324FAD41496672388382CF.gif" alt="贴脸反应">
             <span>Vue / Nuxt / TypeScript</span>
             <h3>KIRAKIRA-DOUGA/KIRAKIRA-Cerasus</h3>
             <p>KIRAKIRA 动画社交网络前端，公开 commit 显示参与 Nuxt / Vue 前端维护。</p>
             <a href="https://github.com/KIRAKIRA-DOUGA/KIRAKIRA-Cerasus" target="_blank" rel="noreferrer">OPEN</a>
           </article>
           <article class="repo-card" data-kind="external frontend audio">
+            <img class="repo-meme" src="assets/memes-normalized/beba929a4739a62c4aa904491c773732.gif" alt="混沌反应">
             <span>Vue / JavaScript / SCSS</span>
             <h3>OtmInk-Otomad-Journal/camellia-frontend</h3>
             <p>音 MAD 相关社区前端项目。公开 commit 显示参与头像更新与 Promise 修复。</p>
@@ -192,19 +218,19 @@
         </div>
       </section>
 
-      <section id="otmad" class="section otmad-section">
+      <section id="otmad" class="section otmad-section page-section">
         <div class="section-heading">
           <p class="eyebrow">OTOMAD / SAMPLE CONSOLE</p>
           <h2>音 MAD 方向</h2>
         </div>
         <div class="otmad-layout">
           <div class="sample-board" aria-label="音 MAD 作品线索">
-            <button type="button" data-sample="big-brother"><strong>Big Brother</strong><span>采样 / 碎核音乐</span></button>
-            <button type="button" data-sample="liar-nasa"><strong>Liar NASA</strong><span>角色图像 / 节奏实验</span></button>
-            <button type="button" data-sample="apollo"><strong>Apollo</strong><span>After Liar NASA</span></button>
-            <button type="button" data-sample="hearing"><strong>做听力</strong><span>短视频 / 声画梗</span></button>
-            <button type="button" data-sample="city"><strong>南京、机械、路和家</strong><span>生活记录 / 氛围</span></button>
-            <button type="button" data-sample="contest"><strong>新星计划</strong><span>参赛作品 / 系列</span></button>
+            <button type="button" data-sample="big-brother"><img class="sample-meme" src="assets/memes-normalized/0388AEE1E9324FAD41496672388382CF.gif" alt=""><strong>Big Brother</strong><span>采样 / 碎核音乐</span></button>
+            <button type="button" data-sample="liar-nasa"><img class="sample-meme" src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" alt=""><strong>Liar NASA</strong><span>角色图像 / 节奏实验</span></button>
+            <button type="button" data-sample="apollo"><img class="sample-meme" src="assets/memes-normalized/F7D01CA3635DDC8C51B4F1205611FC2C.gif" alt=""><strong>Apollo</strong><span>After Liar NASA</span></button>
+            <button type="button" data-sample="hearing"><img class="sample-meme" src="assets/memes-normalized/45e7ac1556f5e242a6b6b75d47a9d122.jpg" alt=""><strong>做听力</strong><span>短视频 / 声画梗</span></button>
+            <button type="button" data-sample="city"><img class="sample-meme" src="assets/memes-normalized/2bd85f2ee478f56d711cf2bcfb036168.gif" alt=""><strong>南京、机械、路和家</strong><span>生活记录 / 氛围</span></button>
+            <button type="button" data-sample="contest"><img class="sample-meme" src="assets/memes-normalized/92ad09ed49f26270b43a292b061d33af.gif" alt=""><strong>新星计划</strong><span>参赛作品 / 系列</span></button>
           </div>
           <div class="signal-console" aria-live="polite">
             <p class="eyebrow">LIVE TERMINAL</p>
@@ -215,75 +241,7 @@
         </div>
       </section>
 
-      <section id="memes" class="section meme-section">
-        <div class="section-heading">
-          <p class="eyebrow">MEME SIGNAL WALL / AUTO FIXED GIF SUFFIX</p>
-          <h2>表情包信号墙</h2>
-        </div>
-        <p class="section-note">
-          已按文件真实格式自动修复引用：7 个实际为 GIF 的 `.jpg` 表情包现在通过 `.gif` 规范副本加载。
-          这些素材被压成统一的黑白点阵风格，作为薛若米网络语气的反应层。
-        </p>
-        <div class="meme-console">
-          <div class="meme-stage" aria-live="polite">
-            <div class="meme-stage-image">
-              <img id="memePreview" src="assets/memes-normalized/b8f2d1850317c1223b8869b47ba6b0b7.jpg" alt="啊可以可以表情包预览">
-            </div>
-            <div class="meme-stage-data">
-              <p class="eyebrow">ACTIVE MEME NODE</p>
-              <h3 id="memeTitle">啊可以可以</h3>
-              <p id="memeDesc">批准、通过、可以上车。适合作为“这个想法能进昊通矩阵”的确认信号。</p>
-              <pre id="memeLog">&gt; meme_node selected: approve
-&gt; suffix_status: jpg source / jpg output
-&gt; matrix_filter: active</pre>
-            </div>
-          </div>
-          <div class="meme-grid" aria-label="表情包列表">
-            <button class="meme-card is-active" type="button" data-title="啊可以可以" data-desc="批准、通过、可以上车。适合作为“这个想法能进昊通矩阵”的确认信号。" data-src="assets/memes-normalized/b8f2d1850317c1223b8869b47ba6b0b7.jpg" data-status="jpg source / jpg output">
-              <img src="assets/memes-normalized/b8f2d1850317c1223b8869b47ba6b0b7.jpg" alt="啊可以可以表情包">
-              <span>APPROVE</span>
-            </button>
-            <button class="meme-card" type="button" data-title="YES 同意" data-desc="明确点头、正向反馈、强烈认同，用来做页面里的 YES 信号。" data-src="assets/memes-normalized/92ad09ed49f26270b43a292b061d33af.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/92ad09ed49f26270b43a292b061d33af.gif" alt="YES 同意动图">
-              <span>YES</span>
-            </button>
-            <button class="meme-card" type="button" data-title="墨镜执行" data-desc="进入执行模式，适合对应 GitHub、工具开发和“我来写”的状态。" data-src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" alt="墨镜头像动图">
-              <span>EXECUTE</span>
-            </button>
-            <button class="meme-card" type="button" data-title="低机位观察" data-desc="趴下拍摄、潜伏观察、捕捉素材，和 B 站/音 MAD 的采样视角相连。" data-src="assets/memes-normalized/F7D01CA3635DDC8C51B4F1205611FC2C.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/F7D01CA3635DDC8C51B4F1205611FC2C.gif" alt="低机位观察动图">
-              <span>OBSERVE</span>
-            </button>
-            <button class="meme-card" type="button" data-title="贴脸输入" data-desc="信息量突然怼到眼前，适合表现互联网冲浪里的强刺激片段。" data-src="assets/memes-normalized/0388AEE1E9324FAD41496672388382CF.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/0388AEE1E9324FAD41496672388382CF.gif" alt="贴脸输入动图">
-              <span>CLOSE-UP</span>
-            </button>
-            <button class="meme-card" type="button" data-title="赛道猫步" data-desc="突然开始跑动，像数据包在赛道上冲刺，适合给交互反馈提速。" data-src="assets/memes-normalized/26750ec406ac063e0272af5ea70e26ea.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/26750ec406ac063e0272af5ea70e26ea.gif" alt="赛道猫步动图">
-              <span>RUN</span>
-            </button>
-            <button class="meme-card" type="button" data-title="站立待机" data-desc="小人待机、轻微抗议、正在加载情绪，用来表达“我先看看”。" data-src="assets/memes-normalized/2bd85f2ee478f56d711cf2bcfb036168.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/2bd85f2ee478f56d711cf2bcfb036168.gif" alt="站立待机动图">
-              <span>IDLE</span>
-            </button>
-            <button class="meme-card" type="button" data-title="震惊开窗" data-desc="被信息量惊到，适合放在作品爆点、播放量、仓库发现之后。" data-src="assets/memes-normalized/45e7ac1556f5e242a6b6b75d47a9d122.jpg" data-status="jpg source / jpg output">
-              <img src="assets/memes-normalized/45e7ac1556f5e242a6b6b75d47a9d122.jpg" alt="震惊开窗表情包">
-              <span>SHOCK</span>
-            </button>
-            <button class="meme-card" type="button" data-title="捏捏盘算" data-desc="像在暗中规划下一步，把灵感压成项目、视频或音 MAD 片段。" data-src="assets/memes-normalized/cb9732bcb239e8cebf706cd1651ed237.jpg" data-status="jpg source / jpg output">
-              <img src="assets/memes-normalized/cb9732bcb239e8cebf706cd1651ed237.jpg" alt="捏捏盘算表情包">
-              <span>PLAN</span>
-            </button>
-            <button class="meme-card" type="button" data-title="摆动不明生物" data-desc="抽象、晃动、难以归类，适合归入昊通地图里的混沌素材池。" data-src="assets/memes-normalized/beba929a4739a62c4aa904491c773732.gif" data-status="jpg source / gif repaired">
-              <img src="assets/memes-normalized/beba929a4739a62c4aa904491c773732.gif" alt="摆动不明生物动图">
-              <span>CHAOS</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="timeline" class="section timeline-section">
+      <section id="timeline" class="section timeline-section page-section">
         <div class="section-heading">
           <p class="eyebrow">TRACE ROUTE</p>
           <h2>互联网生涯路线</h2>
@@ -292,6 +250,7 @@
           <li>
             <time>START</time>
             <div>
+              <img class="trace-meme" src="assets/memes-normalized/2bd85f2ee478f56d711cf2bcfb036168.gif" alt="待机反应">
               <h3>QQ 空间：旧坐标</h3>
               <p>从熟人社区开始记录生活，互联网先成为个人记忆的容器。</p>
             </div>
@@ -299,6 +258,7 @@
           <li>
             <time>2021</time>
             <div>
+              <img class="trace-meme" src="assets/memes-normalized/b8f2d1850317c1223b8869b47ba6b0b7.jpg" alt="可以反应">
               <h3>GitHub：公开身份建立</h3>
               <p>ViTa-Chara 账号上线，薛若米开始以公开仓库记录开发路线。</p>
             </div>
@@ -306,6 +266,7 @@
           <li>
             <time>2024</time>
             <div>
+              <img class="trace-meme" src="assets/memes-normalized/26750ec406ac063e0272af5ea70e26ea.gif" alt="奔跑反应">
               <h3>B 站：内容持续发射</h3>
               <p>主页展示出高播放内容、参赛作品与音 MAD / 音乐采样方向，表达路线形成可回看的样本库。</p>
             </div>
@@ -313,6 +274,7 @@
           <li>
             <time>2026</time>
             <div>
+              <img class="trace-meme" src="assets/memes-normalized/beb54a414c7e0f8f24106f690f1d7b28.gif" alt="执行反应">
               <h3>HTWallpaper：开发成功节点</h3>
               <p>桌面壁纸工具从想法走到可公开展示，成为昊通地图里的关键作品。</p>
             </div>
@@ -320,6 +282,7 @@
           <li>
             <time>NOW</time>
             <div>
+              <img class="trace-meme" src="assets/memes-normalized/92ad09ed49f26270b43a292b061d33af.gif" alt="同意反应">
               <h3>昊通地图：主页生成</h3>
               <p>把 GitHub、B 站、QQ 空间和作品线索压缩成一个可继续扩展的个人主页。</p>
             </div>

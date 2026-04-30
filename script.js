@@ -4,6 +4,7 @@ const glyphs = "薛若米昊通机械VITACHARA010101HTWALLPAPERBILIBILI音MADQZO
 let columns = [];
 let columnWidth = 18;
 let pointerBurst = 0;
+let transitionTimer;
 
 function resizeCanvas() {
   const ratio = window.devicePixelRatio || 1;
@@ -41,6 +42,17 @@ function writeLog(lines) {
 document.querySelectorAll(".node-card, .repo-card").forEach((card) => {
   card.addEventListener("mouseenter", () => card.classList.add("is-lit"));
   card.addEventListener("mouseleave", () => card.classList.remove("is-lit"));
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    card.style.setProperty("--tilt-x", `${(-y * 9).toFixed(2)}deg`);
+    card.style.setProperty("--tilt-y", `${(x * 9).toFixed(2)}deg`);
+  });
+  card.addEventListener("pointerleave", () => {
+    card.style.removeProperty("--tilt-x");
+    card.style.removeProperty("--tilt-y");
+  });
 });
 
 document.querySelectorAll("[data-jump]").forEach((button) => {
@@ -130,6 +142,42 @@ document.querySelectorAll(".meme-card").forEach((button) => {
     pointerBurst = 12;
   });
 });
+
+function runPageTransition(target) {
+  clearTimeout(transitionTimer);
+  document.body.classList.add("is-transitioning");
+  pointerBurst = 16;
+  transitionTimer = setTimeout(() => {
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", `#${target.id || "top"}`);
+  }, 210);
+  setTimeout(() => document.body.classList.remove("is-transitioning"), 820);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href");
+    const target = id === "#top" ? document.querySelector("#top") : document.querySelector(id);
+    if (!target) return;
+    event.preventDefault();
+    runPageTransition(target);
+  });
+});
+
+const sections = [...document.querySelectorAll(".page-section")];
+const navLinks = [...document.querySelectorAll(".top-nav a")];
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    entry.target.classList.toggle("is-visible", entry.isIntersecting);
+    if (entry.isIntersecting) {
+      const id = entry.target.id ? `#${entry.target.id}` : "#top";
+      navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === id));
+    }
+  });
+}, { threshold: 0.34, rootMargin: "-12% 0px -42% 0px" });
+
+sections.forEach((section) => observer.observe(section));
+document.querySelector(".hero")?.classList.add("is-visible");
 
 window.addEventListener("pointermove", (event) => {
   document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
