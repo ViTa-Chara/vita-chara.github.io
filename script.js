@@ -109,6 +109,28 @@ document.querySelectorAll(".sample-board button").forEach((button) => {
   });
 });
 
+document.querySelectorAll(".meme-card").forEach((button) => {
+  button.addEventListener("click", () => {
+    const preview = document.querySelector("#memePreview");
+    const title = document.querySelector("#memeTitle");
+    const desc = document.querySelector("#memeDesc");
+    const log = document.querySelector("#memeLog");
+
+    document.querySelectorAll(".meme-card").forEach((item) => item.classList.toggle("is-active", item === button));
+    preview.src = button.dataset.src;
+    preview.alt = `${button.dataset.title}表情包预览`;
+    title.textContent = button.dataset.title;
+    desc.textContent = button.dataset.desc;
+    log.textContent = [
+      `> meme_node selected: ${button.querySelector("span").textContent.toLowerCase()}`,
+      `> suffix_status: ${button.dataset.status}`,
+      "> matrix_filter: active",
+      "> reaction_layer: injected"
+    ].join("\n");
+    pointerBurst = 12;
+  });
+});
+
 window.addEventListener("pointermove", (event) => {
   document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
   document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
