@@ -5,238 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="昊通地图 - ViTa-Chara / chara VT 的个人互联网生涯主页，收录 GitHub 项目、B 站投稿入口、QQ 空间与作品路线。"
+      content="昊通地图：ViTa-Chara / 昊通机械的个人互联网生涯主页，以数字矩阵风格展示 GitHub、B 站、QQ 空间与开发作品。"
     >
     <title>昊通地图 | ViTa-Chara</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <canvas id="matrixRain" aria-hidden="true"></canvas>
+
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="昊通地图首页">
+      <a class="brand" href="#top" aria-label="回到昊通地图首页">
         <span class="brand-mark">HT</span>
-        <span>
-          <strong>昊通地图</strong>
-          <small>HaoTong Atlas</small>
-        </span>
+        <span class="brand-text">昊通地图</span>
       </a>
       <nav class="top-nav" aria-label="主导航">
-        <a href="#route">路线</a>
-        <a href="#works">作品</a>
-        <a href="#timeline">生涯</a>
-        <a href="#signals">信号源</a>
+        <a href="#top">HOME</a>
+        <a href="#signal">SIGNAL</a>
+        <a href="#works">WORKS</a>
+        <a href="#timeline">TRACE</a>
       </nav>
+      <a class="login-link" href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">GITHUB</a>
     </header>
 
     <main id="top">
-      <section class="hero section">
+      <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">ViTa-Chara / chara VT / XueRuoMi</p>
-          <h1>把互联网生涯画成一张可以继续生长的地图。</h1>
+          <p class="eyebrow">HAOTONG MACHINE / VITA-CHARA / INTERNET TRACE</p>
+          <h1>让世界淡出，观看昊通地图正在生成。</h1>
           <p class="hero-text">
-            从 QQ 空间的早期痕迹，到 B 站的视频表达，再到 GitHub 上的桌面工具和个人主页，
-            这里记录一个喜欢维他柠檬茶、折腾壁纸、把生活做成作品的人。
+            这里不是普通简历，而是一张数字矩阵里的个人航图：QQ 空间记录旧坐标，
+            B 站保存表达样本，GitHub 公开开发轨迹，HTWallpaper 标记一次真正完成的作品。
           </p>
-          <div class="hero-actions" aria-label="个人主页链接">
-            <a class="primary-link" href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="ghost-link" href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer">Bilibili</a>
-            <a class="ghost-link" href="https://user.qzone.qq.com/3357354943/infocenter?loginfrom=31" target="_blank" rel="noreferrer">QQ 空间</a>
+          <div class="hero-actions">
+            <a href="#signal" class="matrix-button">START SCANNING</a>
+            <a href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer" class="matrix-button muted">BILIBILI NODE</a>
           </div>
         </div>
 
-        <div class="map-panel" aria-label="昊通地图总览">
-          <div class="profile-chip">
-            <img src="https://avatars.githubusercontent.com/u/82943378?v=4" alt="ViTa-Chara GitHub 头像">
-            <div>
-              <strong>chara VT</strong>
-              <span>HaoTongMachine.Inc</span>
+        <aside class="identity-core" aria-label="身份核心">
+          <div class="avatar-shell">
+            <img src="assets/qq-avatar.jpg" alt="QQ 头像">
+          </div>
+          <div class="identity-lines">
+            <span>UID 204339779</span>
+            <span>LV6 / 大会员</span>
+            <span>什么东西都想试试</span>
+          </div>
+          <div class="terminal-card">
+            <p>&gt; boot_profile --name 昊通机械</p>
+            <p>&gt; company HaoTongMachine.Inc</p>
+            <p>&gt; taste 维他柠檬茶</p>
+            <p>&gt; status public_archive_online</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="signal" class="matrix-frame section">
+        <div class="frame-corners" aria-hidden="true"></div>
+        <div class="bili-panel">
+          <div class="bili-image">
+            <img src="assets/bilibili-home.png" alt="昊通机械 B 站主页截图">
+          </div>
+          <div class="bili-data">
+            <p class="eyebrow">BILIBILI SIGNAL CAPTURE</p>
+            <h2>昊通机械</h2>
+            <p>
+              B 站主页显示：投稿 148、视频 123、粉丝 2192、获赞 2.1 万、播放 33.7 万。
+              这里是视频、梗、音乐采样、游戏片段和作品参赛记录的公开入口。
+            </p>
+            <div class="stat-grid" aria-label="B 站数据">
+              <span><strong>383</strong>关注</span>
+              <span><strong>2192</strong>粉丝</span>
+              <span><strong>2.1w</strong>获赞</span>
+              <span><strong>33.7w</strong>播放</span>
             </div>
           </div>
-          <svg class="route-map" viewBox="0 0 720 460" role="img" aria-labelledby="mapTitle mapDesc">
-            <title id="mapTitle">ViTa-Chara 的互联网路线图</title>
-            <desc id="mapDesc">从 QQ 空间、B 站、GitHub、HTWallpaper 到个人主页的路线图。</desc>
-            <defs>
-              <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
-                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#d8ded1" stroke-width="1"/>
-              </pattern>
-            </defs>
-            <rect width="720" height="460" rx="8" fill="#f8faf0"/>
-            <rect width="720" height="460" rx="8" fill="url(#grid)" opacity="0.82"/>
-            <path class="river" d="M 0 338 C 110 290, 168 390, 276 336 S 438 232, 544 276 S 654 332, 720 250"/>
-            <path class="main-route" d="M 92 326 C 166 248, 224 254, 284 188 S 420 112, 518 168 S 620 232, 644 106"/>
-            <path class="side-route" d="M 164 108 C 238 136, 278 206, 338 244 S 492 292, 596 356"/>
-            <g class="pin pin-old" data-node="qzone" transform="translate(92 326)">
-              <circle r="18"/><text y="5">Q</text>
-            </g>
-            <g class="pin pin-video" data-node="bilibili" transform="translate(284 188)">
-              <circle r="18"/><text y="5">B</text>
-            </g>
-            <g class="pin pin-code" data-node="github" transform="translate(518 168)">
-              <circle r="18"/><text y="5">G</text>
-            </g>
-            <g class="pin pin-app" data-node="htwallpaper" transform="translate(644 106)">
-              <circle r="18"/><text y="5">W</text>
-            </g>
-            <g class="pin pin-home" data-node="home" transform="translate(596 356)">
-              <circle r="18"/><text y="5">H</text>
-            </g>
-            <text class="map-label" x="36" y="58">Qzone archive</text>
-            <text class="map-label" x="220" y="110">video log</text>
-            <text class="map-label" x="438" y="90">code field</text>
-            <text class="map-label" x="544" y="56">HTWallpaper</text>
-            <text class="map-label" x="502" y="410">vita-chara.github.io</text>
-          </svg>
-          <div class="map-legend">
-            <span><i class="legend-dot old"></i>早期社区</span>
-            <span><i class="legend-dot video"></i>视频表达</span>
-            <span><i class="legend-dot code"></i>开发作品</span>
-            <span><i class="legend-dot home"></i>个人主页</span>
-          </div>
         </div>
       </section>
 
-      <section id="route" class="section route-section">
+      <section id="works" class="section">
         <div class="section-heading">
-          <p class="eyebrow">Route System</p>
-          <h2>四条主线</h2>
+          <p class="eyebrow">WORKS / BUILD LOG</p>
+          <h2>作品节点</h2>
         </div>
-        <div class="route-tabs" role="tablist" aria-label="路线筛选">
-          <button class="tab-button is-active" type="button" data-filter="all">全部</button>
-          <button class="tab-button" type="button" data-filter="code">开发</button>
-          <button class="tab-button" type="button" data-filter="video">表达</button>
-          <button class="tab-button" type="button" data-filter="memory">记忆</button>
-        </div>
-        <div class="route-grid">
-          <article class="route-card" data-category="code" data-node="htwallpaper">
-            <span class="card-index">01</span>
-            <h3>桌面工具路线</h3>
-            <p>HTWallpaper 将本地视频抽帧为桌面壁纸，串起 FastAPI、原生前端、FFmpeg、系统壁纸接口、多屏模式与托盘启动。</p>
-          </article>
-          <article class="route-card" data-category="video" data-node="bilibili">
-            <span class="card-index">02</span>
-            <h3>视频投稿路线</h3>
-            <p>B 站是公开表达的入口，保存作品演示、日常记录、兴趣片段和可被重新发现的灵感。</p>
-          </article>
-          <article class="route-card" data-category="memory" data-node="qzone">
-            <span class="card-index">03</span>
-            <h3>QQ 空间路线</h3>
-            <p>更早的网络足迹从这里开始：日志、相册、说说和熟人社区，构成个人互联网生涯的旧城区。</p>
-          </article>
-          <article class="route-card" data-category="code" data-node="github">
-            <span class="card-index">04</span>
-            <h3>GitHub 路线</h3>
-            <p>公开仓库记录从 2021 年开始延展，贡献蛇、mdf、HTWallpaper 与本站共同组成开发档案。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="works" class="section works-section">
-        <div class="section-heading">
-          <p class="eyebrow">Works</p>
-          <h2>作品与开发成功</h2>
-        </div>
-        <div class="work-layout">
-          <article class="work-feature">
-            <div class="work-kicker">Featured Project</div>
+        <div class="node-grid">
+          <article class="node-card is-featured" data-node="wallpaper">
+            <span class="node-code">NODE 01</span>
             <h3>HTWallpaper</h3>
             <p>
-              简单好用的视频转静态壁纸软件。它把本地视频库变成可调度的桌面视觉系统，
-              支持立即切换、定时轮换、色调过滤、多屏模式和开机启动。
+              简单好用的视频转静态壁纸软件。基于 FastAPI、原生前端、FFmpeg 与系统壁纸接口，
+              支持视频抽帧、立即切换、定时轮换、色调过滤、多屏模式和托盘启动。
             </p>
-            <dl class="spec-list">
-              <div><dt>后端</dt><dd>FastAPI / Uvicorn / APScheduler</dd></div>
-              <div><dt>前端</dt><dd>HTML / CSS / Vanilla JS</dd></div>
-              <div><dt>媒体</dt><dd>FFmpeg 抽帧与色调分析</dd></div>
-              <div><dt>系统</dt><dd>Windows / macOS 壁纸与启动集成</dd></div>
-            </dl>
-            <a class="inline-link" href="https://github.com/ViTa-Chara/HTWallpaper" target="_blank" rel="noreferrer">查看项目仓库</a>
+            <a href="https://github.com/ViTa-Chara/HTWallpaper" target="_blank" rel="noreferrer">OPEN REPO</a>
           </article>
-          <div class="work-stack">
-            <article class="mini-work">
-              <h3>GitHub Contribution Snake</h3>
-              <p>把贡献记录做成蛇形动画，个人主页不只展示文字，也展示持续行动留下的轨迹。</p>
-              <img class="snake-preview" src="https://raw.githubusercontent.com/ViTa-Chara/ViTa-Chara/output/github-contribution-grid-snake.svg" alt="GitHub contribution grid snake animation">
-            </article>
-            <article class="mini-work">
-              <h3>vita-chara.github.io</h3>
-              <p>本站是新的地图入口：把公开链接、作品索引、生涯节点和兴趣标签整理成可扩展的主页。</p>
-              <a class="inline-link" href="https://github.com/ViTa-Chara/vita-chara.github.io" target="_blank" rel="noreferrer">页面源码</a>
-            </article>
-          </div>
+          <article class="node-card" data-node="bili">
+            <span class="node-code">NODE 02</span>
+            <h3>B 站内容库</h3>
+            <p>主页截图里能看到“新星计划 参赛作品”、音乐采样、游戏片段、生活记录等内容分布。</p>
+            <a href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer">OPEN SPACE</a>
+          </article>
+          <article class="node-card" data-node="github">
+            <span class="node-code">NODE 03</span>
+            <h3>GitHub 轨迹</h3>
+            <p>从 2021 年建立公开身份，到 mdf、贡献蛇、HTWallpaper 与本站，代码坐标逐渐成形。</p>
+            <a href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">OPEN PROFILE</a>
+          </article>
+          <article class="node-card" data-node="qzone">
+            <span class="node-code">NODE 04</span>
+            <h3>QQ 空间旧城区</h3>
+            <p>QQ 空间是更早的互联网生活档案，保存熟人社区里的说说、相册与个人记忆。</p>
+            <a href="https://user.qzone.qq.com/3357354943/infocenter?loginfrom=31" target="_blank" rel="noreferrer">OPEN QZONE</a>
+          </article>
         </div>
       </section>
 
       <section id="timeline" class="section timeline-section">
         <div class="section-heading">
-          <p class="eyebrow">Internet Career</p>
-          <h2>互联网生涯轴</h2>
+          <p class="eyebrow">TRACE ROUTE</p>
+          <h2>互联网生涯路线</h2>
         </div>
-        <ol class="timeline">
+        <ol class="trace-list">
           <li>
-            <time>早期</time>
+            <time>START</time>
             <div>
-              <h3>QQ 空间旧城区</h3>
-              <p>从熟人社区、相册和碎片表达开始，互联网先成为生活记录的容器。</p>
+              <h3>QQ 空间：旧坐标</h3>
+              <p>从熟人社区开始记录生活，互联网先成为个人记忆的容器。</p>
             </div>
           </li>
           <li>
             <time>2021</time>
             <div>
-              <h3>GitHub 账号启程</h3>
-              <p>ViTa-Chara 在 GitHub 建立公开身份，简介写着“喜欢维他柠檬茶”。</p>
+              <h3>GitHub：公开身份建立</h3>
+              <p>ViTa-Chara 账号上线，简介写下“喜欢维他柠檬茶”，开发路线开始留下痕迹。</p>
             </div>
           </li>
           <li>
-            <time>2022</time>
+            <time>2024</time>
             <div>
-              <h3>mdf 与早期仓库</h3>
-              <p>公开仓库开始沉淀试验项目，留下从兴趣到实践的第一批代码坐标。</p>
-            </div>
-          </li>
-          <li>
-            <time>2023</time>
-            <div>
-              <h3>贡献蛇个人档案</h3>
-              <p>profile 仓库使用 GitHub contribution snake，把贡献热力图转成动态签名。</p>
+              <h3>B 站：内容持续发射</h3>
+              <p>主页展示出高播放内容、参赛作品与多类型投稿，表达路线形成可回看的样本库。</p>
             </div>
           </li>
           <li>
             <time>2026</time>
             <div>
-              <h3>HTWallpaper 与昊通地图</h3>
-              <p>桌面工具成熟为可展示作品，个人主页也成为全部网络身份的地图入口。</p>
+              <h3>HTWallpaper：开发成功节点</h3>
+              <p>桌面壁纸工具从想法走到可公开展示，成为昊通地图里的关键作品。</p>
+            </div>
+          </li>
+          <li>
+            <time>NOW</time>
+            <div>
+              <h3>昊通地图：主页生成</h3>
+              <p>把 GitHub、B 站、QQ 空间和作品线索压缩成一个可继续扩展的个人主页。</p>
             </div>
           </li>
         </ol>
       </section>
-
-      <section id="signals" class="section signal-section">
-        <div class="section-heading">
-          <p class="eyebrow">Signals</p>
-          <h2>公开信号源</h2>
-        </div>
-        <div class="signal-grid">
-          <a class="signal-card" href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">
-            <span>GitHub</span>
-            <strong>ViTa-Chara</strong>
-            <p>代码、工具、主页与贡献记录。</p>
-          </a>
-          <a class="signal-card" href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer">
-            <span>Bilibili</span>
-            <strong>204339779</strong>
-            <p>视频投稿入口与公开内容档案。</p>
-          </a>
-          <a class="signal-card" href="https://user.qzone.qq.com/3357354943/infocenter?loginfrom=31" target="_blank" rel="noreferrer">
-            <span>Qzone</span>
-            <strong>3357354943</strong>
-            <p>早期社区痕迹和个人记录入口。</p>
-          </a>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
-      <span>昊通地图 / HaoTong Atlas</span>
-      <span>Verified from public links on 2026-04-30</span>
+      <span>HAOTONG ATLAS / 昊通地图</span>
+      <span>PUBLIC TRACE COMPILED 2026-04-30</span>
     </footer>
 
     <script src="script.js"></script>
