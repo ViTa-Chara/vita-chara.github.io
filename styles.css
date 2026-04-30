@@ -41,6 +41,20 @@ body::before {
   content: "";
 }
 
+.scan-cursor {
+  position: fixed;
+  left: var(--cursor-x, 50vw);
+  top: var(--cursor-y, 50vh);
+  z-index: 1;
+  width: 220px;
+  height: 220px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14), transparent 62%);
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  transform: translate(-50%, -50%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -136,7 +150,7 @@ canvas {
 .login-link {
   display: grid;
   justify-self: end;
-  min-width: 116px;
+  min-width: 128px;
   place-items: center;
   border-color: var(--line-strong);
   color: var(--soft);
@@ -240,9 +254,47 @@ h3 {
   margin-top: 28px;
 }
 
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 640px;
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.hero-metrics button {
+  display: grid;
+  min-height: 92px;
+  place-items: center;
+  border: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--soft);
+  font: inherit;
+  cursor: pointer;
+}
+
+.hero-metrics button:hover,
+.hero-metrics button:focus-visible {
+  background: var(--ink);
+  color: #000;
+  outline: none;
+}
+
+.hero-metrics strong {
+  color: inherit;
+  font-size: 30px;
+}
+
+.hero-metrics span {
+  color: inherit;
+  font-size: 12px;
+}
+
 .matrix-button {
   display: inline-grid;
-  min-width: 180px;
+  min-width: 194px;
   padding: 0 18px;
   place-items: center;
   border-color: var(--line-strong);
@@ -488,6 +540,199 @@ h3 {
   font-weight: 900;
 }
 
+.section-note {
+  max-width: 880px;
+  margin: -12px 0 24px;
+  color: var(--soft);
+  line-height: 1.78;
+}
+
+.repo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.repo-filter {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  background: #050505;
+  color: var(--soft);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.repo-filter:hover,
+.repo-filter:focus-visible,
+.repo-filter.is-active {
+  border-color: var(--line-strong);
+  background: var(--ink);
+  color: #000;
+  outline: none;
+}
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: transparent;
+}
+
+.repo-card {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 330px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.065), transparent 48%),
+    #050505;
+}
+
+.repo-card::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(255, 255, 255, 0.035) 10px 11px);
+  opacity: 0;
+  content: "";
+  transition: opacity 160ms ease;
+}
+
+.repo-card:hover::before,
+.repo-card.is-lit::before {
+  opacity: 1;
+}
+
+.repo-card.is-hidden {
+  display: none;
+}
+
+.repo-card span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.repo-card h3 {
+  overflow-wrap: anywhere;
+  font-size: 18px;
+}
+
+.repo-card p {
+  color: var(--soft);
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.repo-card a {
+  display: inline-grid;
+  width: fit-content;
+  min-width: 84px;
+  min-height: 34px;
+  padding: 0 12px;
+  place-items: center;
+  border: 1px solid currentColor;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.repo-card a:hover,
+.repo-card a:focus-visible {
+  background: var(--ink);
+  color: #000;
+  outline: none;
+}
+
+.otmad-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.sample-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.sample-board button {
+  position: relative;
+  min-height: 170px;
+  padding: 18px;
+  border: 0;
+  background: #050505;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sample-board button::after {
+  position: absolute;
+  inset: auto 12px 12px auto;
+  color: rgba(255, 255, 255, 0.18);
+  font-size: 46px;
+  content: "♪";
+}
+
+.sample-board button:hover,
+.sample-board button:focus-visible,
+.sample-board button.is-active {
+  background: var(--ink);
+  color: #000;
+  outline: none;
+}
+
+.sample-board strong,
+.sample-board span {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.sample-board strong {
+  margin-bottom: 14px;
+  font-size: 22px;
+}
+
+.sample-board span {
+  color: var(--soft);
+  line-height: 1.6;
+}
+
+.sample-board button:hover span,
+.sample-board button:focus-visible span,
+.sample-board button.is-active span {
+  color: #222;
+}
+
+.signal-console {
+  min-height: 340px;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 45%),
+    #050505;
+}
+
+.signal-console pre {
+  min-height: 230px;
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--soft);
+  font: inherit;
+  line-height: 1.65;
+}
+
 .trace-list {
   position: relative;
   display: grid;
@@ -572,7 +817,8 @@ h3 {
   }
 
   .hero,
-  .bili-panel {
+  .bili-panel,
+  .otmad-layout {
     grid-template-columns: 1fr;
   }
 
@@ -586,6 +832,10 @@ h3 {
   }
 
   .node-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sample-board {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -605,8 +855,15 @@ h3 {
   }
 
   .node-grid,
-  .stat-grid {
+  .stat-grid,
+  .hero-metrics,
+  .sample-board {
     grid-template-columns: 1fr;
+  }
+
+  .repo-grid {
+    grid-template-columns: 1fr;
+    overflow-x: visible;
   }
 
   .section-heading {

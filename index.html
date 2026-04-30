@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="昊通地图：ViTa-Chara / 昊通机械的个人互联网生涯主页，以数字矩阵风格展示 GitHub、B 站、QQ 空间与开发作品。"
+      content="昊通地图：薛若米 / ViTa-Chara 的个人互联网生涯主页，以数字矩阵风格展示昊通机械、GitHub、B 站、QQ 空间、音 MAD 与开发作品。"
     >
     <title>昊通地图 | ViTa-Chara</title>
     <link rel="stylesheet" href="styles.css">
@@ -14,6 +14,7 @@
     <canvas id="matrixRain" aria-hidden="true"></canvas>
 
     <header class="site-header">
+      <div class="scan-cursor" aria-hidden="true"></div>
       <a class="brand" href="#top" aria-label="回到昊通地图首页">
         <span class="brand-mark">HT</span>
         <span class="brand-text">昊通地图</span>
@@ -22,6 +23,8 @@
         <a href="#top">HOME</a>
         <a href="#signal">SIGNAL</a>
         <a href="#works">WORKS</a>
+        <a href="#repos">REPOS</a>
+        <a href="#otmad">OTOMAD</a>
         <a href="#timeline">TRACE</a>
       </nav>
       <a class="login-link" href="https://github.com/ViTa-Chara" target="_blank" rel="noreferrer">GITHUB</a>
@@ -30,15 +33,20 @@
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">HAOTONG MACHINE / VITA-CHARA / INTERNET TRACE</p>
-          <h1>让世界淡出，观看昊通地图正在生成。</h1>
+          <p class="eyebrow">XUE RUO MI / HAOTONG MACHINE / VITA-CHARA</p>
+          <h1>薛若米正在把互联网生涯编译成昊通地图。</h1>
           <p class="hero-text">
-            这里不是普通简历，而是一张数字矩阵里的个人航图：QQ 空间记录旧坐标，
-            B 站保存表达样本，GitHub 公开开发轨迹，HTWallpaper 标记一次真正完成的作品。
+            个人名义是薛若米，昊通机械是公司与创作厂牌。这里不是普通简历，而是一张数字矩阵里的个人航图：
+            QQ 空间记录旧坐标，B 站保存音 MAD 与视频表达样本，GitHub 公开开发轨迹。
           </p>
           <div class="hero-actions">
             <a href="#signal" class="matrix-button">START SCANNING</a>
-            <a href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer" class="matrix-button muted">BILIBILI NODE</a>
+            <a href="#repos" class="matrix-button muted">LOAD REPOS</a>
+          </div>
+          <div class="hero-metrics" aria-label="主页概览数据">
+            <button type="button" data-jump="#repos"><strong>7</strong><span>公开参与库</span></button>
+            <button type="button" data-jump="#otmad"><strong>123</strong><span>B 站视频</span></button>
+            <button type="button" data-jump="#works"><strong>2.1w</strong><span>公开获赞</span></button>
           </div>
         </div>
 
@@ -47,15 +55,17 @@
             <img src="assets/qq-avatar.jpg" alt="QQ 头像">
           </div>
           <div class="identity-lines">
+            <span>薛若米 / ViTa-Chara</span>
+            <span>昊通机械：公司与内容厂牌</span>
             <span>UID 204339779</span>
             <span>LV6 / 大会员</span>
             <span>什么东西都想试试</span>
           </div>
           <div class="terminal-card">
-            <p>&gt; boot_profile --name 昊通机械</p>
-            <p>&gt; company HaoTongMachine.Inc</p>
+            <p>&gt; boot_profile --name 薛若米</p>
+            <p>&gt; bind_company 昊通机械 / HaoTongMachine.Inc</p>
             <p>&gt; taste 维他柠檬茶</p>
-            <p>&gt; status public_archive_online</p>
+            <p>&gt; status matrix_archive_online</p>
           </div>
         </aside>
       </section>
@@ -71,7 +81,7 @@
             <h2>昊通机械</h2>
             <p>
               B 站主页显示：投稿 148、视频 123、粉丝 2192、获赞 2.1 万、播放 33.7 万。
-              这里是视频、梗、音乐采样、游戏片段和作品参赛记录的公开入口。
+              这里是音 MAD、梗、音乐采样、游戏片段、生活记录和作品参赛记录的公开入口。
             </p>
             <div class="stat-grid" aria-label="B 站数据">
               <span><strong>383</strong>关注</span>
@@ -100,8 +110,8 @@
           </article>
           <article class="node-card" data-node="bili">
             <span class="node-code">NODE 02</span>
-            <h3>B 站内容库</h3>
-            <p>主页截图里能看到“新星计划 参赛作品”、音乐采样、游戏片段、生活记录等内容分布。</p>
+            <h3>音 MAD / 视频内容库</h3>
+            <p>主页截图里能看到“新星计划 参赛作品”、Big Brother 采样、Liar NASA、Apollo 后续等音画实验。</p>
             <a href="https://space.bilibili.com/204339779/upload/video" target="_blank" rel="noreferrer">OPEN SPACE</a>
           </article>
           <article class="node-card" data-node="github">
@@ -116,6 +126,91 @@
             <p>QQ 空间是更早的互联网生活档案，保存熟人社区里的说说、相册与个人记忆。</p>
             <a href="https://user.qzone.qq.com/3357354943/infocenter?loginfrom=31" target="_blank" rel="noreferrer">OPEN QZONE</a>
           </article>
+        </div>
+      </section>
+
+      <section id="repos" class="section repo-section">
+        <div class="section-heading">
+          <p class="eyebrow">GITHUB / PUBLIC DEV MATRIX</p>
+          <h2>参与开发库</h2>
+        </div>
+        <p class="section-note">
+          通过 GitHub 公开 API 查询：包含薛若米名下公开仓库，以及 commit search 可见的外部参与仓库。
+          私有库、未关联 ViTa-Chara 作者身份的提交不会出现在这里。
+        </p>
+        <div class="repo-controls" role="tablist" aria-label="仓库筛选">
+          <button class="repo-filter is-active" type="button" data-repo-filter="all">ALL</button>
+          <button class="repo-filter" type="button" data-repo-filter="owned">OWNED</button>
+          <button class="repo-filter" type="button" data-repo-filter="external">CONTRIBUTED</button>
+          <button class="repo-filter" type="button" data-repo-filter="audio">AUDIO</button>
+          <button class="repo-filter" type="button" data-repo-filter="frontend">FRONTEND</button>
+        </div>
+        <div class="repo-grid">
+          <article class="repo-card" data-kind="owned frontend">
+            <span>CSS / HTML / JS</span>
+            <h3>ViTa-Chara/vita-chara.github.io</h3>
+            <p>本站源码。把个人名义、公司身份、B 站内容、QQ 空间与 GitHub 作品整合为数字矩阵主页。</p>
+            <a href="https://github.com/ViTa-Chara/vita-chara.github.io" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+          <article class="repo-card" data-kind="owned app audio">
+            <span>Python / FastAPI / FFmpeg</span>
+            <h3>ViTa-Chara/HTWallpaper</h3>
+            <p>视频转静态壁纸工具，支持抽帧、色调过滤、多屏、定时轮换、托盘运行和系统壁纸集成。</p>
+            <a href="https://github.com/ViTa-Chara/HTWallpaper" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+          <article class="repo-card" data-kind="owned profile">
+            <span>Profile / GitHub Actions</span>
+            <h3>ViTa-Chara/ViTa-Chara</h3>
+            <p>个人 GitHub profile 仓库，贡献蛇动画记录持续开发的轨迹。</p>
+            <a href="https://github.com/ViTa-Chara/ViTa-Chara" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+          <article class="repo-card" data-kind="owned archive">
+            <span>Early Repo</span>
+            <h3>ViTa-Chara/mdf</h3>
+            <p>2022 年公开仓库，作为早期代码坐标收录进开发矩阵。</p>
+            <a href="https://github.com/ViTa-Chara/mdf" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+          <article class="repo-card" data-kind="external audio app">
+            <span>TypeScript / Rust</span>
+            <h3>ARounder-183/HiFiShifter</h3>
+            <p>用于人力 Vocaloid 或人声修音的应用。公开 commit 显示参与 WORLD 拉伸尾音、触控板操作等修复。</p>
+            <a href="https://github.com/ARounder-183/HiFiShifter" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+          <article class="repo-card" data-kind="external frontend">
+            <span>Vue / Nuxt / TypeScript</span>
+            <h3>KIRAKIRA-DOUGA/KIRAKIRA-Cerasus</h3>
+            <p>KIRAKIRA 动画社交网络前端，公开 commit 显示参与 Nuxt / Vue 前端维护。</p>
+            <a href="https://github.com/KIRAKIRA-DOUGA/KIRAKIRA-Cerasus" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+          <article class="repo-card" data-kind="external frontend audio">
+            <span>Vue / JavaScript / SCSS</span>
+            <h3>OtmInk-Otomad-Journal/camellia-frontend</h3>
+            <p>音 MAD 相关社区前端项目。公开 commit 显示参与头像更新与 Promise 修复。</p>
+            <a href="https://github.com/OtmInk-Otomad-Journal/camellia-frontend" target="_blank" rel="noreferrer">OPEN</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="otmad" class="section otmad-section">
+        <div class="section-heading">
+          <p class="eyebrow">OTOMAD / SAMPLE CONSOLE</p>
+          <h2>音 MAD 方向</h2>
+        </div>
+        <div class="otmad-layout">
+          <div class="sample-board" aria-label="音 MAD 作品线索">
+            <button type="button" data-sample="big-brother"><strong>Big Brother</strong><span>采样 / 碎核音乐</span></button>
+            <button type="button" data-sample="liar-nasa"><strong>Liar NASA</strong><span>角色图像 / 节奏实验</span></button>
+            <button type="button" data-sample="apollo"><strong>Apollo</strong><span>After Liar NASA</span></button>
+            <button type="button" data-sample="hearing"><strong>做听力</strong><span>短视频 / 声画梗</span></button>
+            <button type="button" data-sample="city"><strong>南京、机械、路和家</strong><span>生活记录 / 氛围</span></button>
+            <button type="button" data-sample="contest"><strong>新星计划</strong><span>参赛作品 / 系列</span></button>
+          </div>
+          <div class="signal-console" aria-live="polite">
+            <p class="eyebrow">LIVE TERMINAL</p>
+            <pre id="signalLog">&gt; sample_console ready
+&gt; click a pad to inspect otomad node
+&gt; waiting_for_input...</pre>
+          </div>
         </div>
       </section>
 
@@ -136,14 +231,14 @@
             <time>2021</time>
             <div>
               <h3>GitHub：公开身份建立</h3>
-              <p>ViTa-Chara 账号上线，简介写下“喜欢维他柠檬茶”，开发路线开始留下痕迹。</p>
+              <p>ViTa-Chara 账号上线，薛若米开始以公开仓库记录开发路线。</p>
             </div>
           </li>
           <li>
             <time>2024</time>
             <div>
               <h3>B 站：内容持续发射</h3>
-              <p>主页展示出高播放内容、参赛作品与多类型投稿，表达路线形成可回看的样本库。</p>
+              <p>主页展示出高播放内容、参赛作品与音 MAD / 音乐采样方向，表达路线形成可回看的样本库。</p>
             </div>
           </li>
           <li>
