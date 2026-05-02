@@ -45,9 +45,9 @@
             <a href="#repos" class="matrix-button muted">LOAD REPOS</a>
           </div>
           <div class="hero-metrics" aria-label="主页概览数据">
-            <button type="button" data-jump="#repos"><strong>7</strong><span>公开参与库</span></button>
-            <button type="button" data-jump="#otmad"><strong>123</strong><span>B 站视频</span></button>
-            <button type="button" data-jump="#works"><strong>2.1w</strong><span>公开获赞</span></button>
+            <button type="button" data-jump="#repos"><strong id="metricRepos">7</strong><span>公开参与库</span></button>
+            <button type="button" data-jump="#otmad"><strong id="metricVideos">123</strong><span>B 站视频</span></button>
+            <button type="button" data-jump="#works"><strong id="metricLikes">2.1w</strong><span>公开获赞</span></button>
           </div>
         </div>
 
@@ -71,6 +71,19 @@
         </aside>
       </section>
 
+      <div class="status-ticker" role="status" aria-live="polite" aria-label="系统状态">
+        <span class="ticker-pulse-dot" aria-hidden="true"></span>
+        <span class="ticker-clock" id="tickerClock">--:--:--</span>
+        <span class="ticker-sep" aria-hidden="true">|</span>
+        <span class="ticker-uptime">UPTIME <span id="tickerUptime">00:00:00</span></span>
+        <span class="ticker-sep" aria-hidden="true">|</span>
+        <span class="ticker-signal" id="tickerSignal">SIGNAL INITIALIZING...</span>
+        <span class="ticker-sep" aria-hidden="true">|</span>
+        <span class="ticker-github">GITHUB <span id="tickerGitHub">★ --</span></span>
+        <span class="ticker-sep" aria-hidden="true">|</span>
+        <span class="ticker-bili">BILIBILI <span id="tickerBili">粉 --</span></span>
+      </div>
+
       <section id="signal" class="matrix-frame section">
         <div class="frame-corners" aria-hidden="true"></div>
         <div class="bili-panel">
@@ -85,10 +98,10 @@
               这里是音 MAD、梗、音乐采样、游戏片段、生活记录和作品参赛记录的公开入口。
             </p>
             <div class="stat-grid" aria-label="B 站数据">
-              <span><strong>383</strong>关注</span>
-              <span><strong>2192</strong>粉丝</span>
-              <span><strong>2.1w</strong>获赞</span>
-              <span><strong>33.7w</strong>播放</span>
+              <span><strong id="biliFollowing">383</strong>关注</span>
+              <span><strong id="biliFollowers">2192</strong>粉丝</span>
+              <span><strong id="biliLikes">2.1w</strong>获赞</span>
+              <span><strong id="biliViews">33.7w</strong>播放</span>
             </div>
           </div>
         </div>
@@ -330,9 +343,25 @@
 
     <footer class="site-footer">
       <span>HAOTONG ATLAS / 昊通地图</span>
-      <span>PUBLIC TRACE COMPILED 2026-04-30</span>
+      <span>PUBLIC TRACE COMPILED <span id="footerDate">2026-04-30</span></span>
     </footer>
 
+    <div class="ee-toast" id="eeToast" role="status" aria-live="assertive" hidden></div>
+    <div class="kb-help" id="kbHelp" role="dialog" aria-label="键盘快捷键" hidden>
+      <div class="kb-help-inner">
+        <h3>KEYBOARD SHORTCUTS</h3>
+        <div class="kb-grid">
+          <span><kbd>G</kbd></span><span>跳转 GitHub / REPOS</span>
+          <span><kbd>B</kbd></span><span>跳转 Bilibili / SIGNAL</span>
+          <span><kbd>M</kbd></span><span>跳转 MEMES 表情包墙</span>
+          <span><kbd>W</kbd></span><span>跳转 WORKS 作品节点</span>
+          <span><kbd>T</kbd></span><span>回到顶部 HOME</span>
+          <span><kbd>?</kbd></span><span>显示 / 隐藏此帮助</span>
+          <span><kbd>Esc</kbd></span><span>关闭弹窗</span>
+        </div>
+        <p class="kb-hint">试试 Konami Code ↑↑↓↓←→←→BA</p>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
