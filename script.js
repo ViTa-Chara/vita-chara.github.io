@@ -10,6 +10,7 @@ let columns = [];
 let columnWidth = 18;
 let pointerBurst = 0;
 let matrixSpeedMultiplier = 1; // easter-egg adjustable
+let latestPointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
 function resizeCanvas() {
   const ratio = window.devicePixelRatio || 1;
@@ -47,7 +48,18 @@ function writeLog(lines) {
 // ---- Existing: card hover ----
 document.querySelectorAll(".node-card, .repo-card").forEach((card) => {
   card.addEventListener("mouseenter", () => card.classList.add("is-lit"));
-  card.addEventListener("mouseleave", () => card.classList.remove("is-lit"));
+  card.addEventListener("mouseleave", () => {
+    card.classList.remove("is-lit");
+    card.style.setProperty("--card-tilt-x", "0");
+    card.style.setProperty("--card-tilt-y", "0");
+  });
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    card.style.setProperty("--card-tilt-x", (x * 5).toFixed(2));
+    card.style.setProperty("--card-tilt-y", (y * 5).toFixed(2));
+  });
 });
 
 // ---- Existing: jump buttons ----
@@ -144,9 +156,117 @@ document.querySelectorAll(".meme-card").forEach((button) => {
 
 // ---- Existing: cursor scan ----
 window.addEventListener("pointermove", (event) => {
-  document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
-  document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
+  latestPointer = { x: event.clientX, y: event.clientY };
+  updatePointerVars(event.clientX, event.clientY);
 });
+
+function updatePointerVars(x, y) {
+  document.documentElement.style.setProperty("--cursor-x", `${x}px`);
+  document.documentElement.style.setProperty("--cursor-y", `${y}px`);
+}
+
+// ============================================================
+//  NEW: 3D Gesture Atlas
+// ============================================================
+
+const atlasRig = document.querySelector("[data-tilt-scene]");
+let atlasTargetX = 0;
+let atlasTargetY = 0;
+let atlasCurrentX = 0;
+let atlasCurrentY = 0;
+let atlasVelocityX = 0;
+let atlasVelocityY = 0;
+let isAtlasDragging = false;
+let atlasDragStart = { x: 0, y: 0, targetX: 0, targetY: 0 };
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function setAtlasTargetFromPointer(x, y, strength = 1) {
+  if (!atlasRig) return;
+  const rect = atlasRig.getBoundingClientRect();
+  const localX = ((x - rect.left) / rect.width - 0.5) * 2;
+  const localY = ((y - rect.top) / rect.height - 0.5) * 2;
+  atlasTargetX = clamp(localX * 14 * strength, -18, 18);
+  atlasTargetY = clamp(localY * 10 * strength, -14, 14);
+  atlasRig.style.setProperty("--gesture-intensity", String(clamp(Math.abs(localX) + Math.abs(localY), 0.34, 1)));
+}
+
+function renderAtlasTilt() {
+  if (atlasRig) {
+    atlasCurrentX += (atlasTargetX - atlasCurrentX) * 0.12 + atlasVelocityX;
+    atlasCurrentY += (atlasTargetY - atlasCurrentY) * 0.12 + atlasVelocityY;
+    atlasVelocityX *= 0.84;
+    atlasVelocityY *= 0.84;
+
+    atlasRig.style.setProperty("--tilt-x", atlasCurrentX.toFixed(2));
+    atlasRig.style.setProperty("--tilt-y", atlasCurrentY.toFixed(2));
+  }
+
+  requestAnimationFrame(renderAtlasTilt);
+}
+
+if (atlasRig) {
+  atlasRig.addEventListener("pointerenter", (event) => {
+    setAtlasTargetFromPointer(event.clientX, event.clientY, 1.08);
+    pointerBurst = Math.max(pointerBurst, 4);
+  });
+
+  atlasRig.addEventListener("pointermove", (event) => {
+    if (isAtlasDragging) return;
+    setAtlasTargetFromPointer(event.clientX, event.clientY, 1.08);
+  });
+
+  atlasRig.addEventListener("pointerleave", () => {
+    if (isAtlasDragging) return;
+    atlasTargetX = 0;
+    atlasTargetY = 0;
+    atlasRig.style.setProperty("--gesture-intensity", "0.42");
+  });
+
+  atlasRig.addEventListener("pointerdown", (event) => {
+    isAtlasDragging = true;
+    atlasDragStart = {
+      x: event.clientX,
+      y: event.clientY,
+      targetX: atlasTargetX,
+      targetY: atlasTargetY
+    };
+    atlasRig.classList.add("is-dragging");
+    atlasRig.setPointerCapture?.(event.pointerId);
+    document.body.classList.add("is-gesture-active");
+    pointerBurst = 13;
+  });
+
+  atlasRig.addEventListener("pointermove", (event) => {
+    if (!isAtlasDragging) return;
+    const dx = event.clientX - atlasDragStart.x;
+    const dy = event.clientY - atlasDragStart.y;
+    const nextX = clamp(atlasDragStart.targetX + dx * 0.12, -26, 26);
+    const nextY = clamp(atlasDragStart.targetY + dy * 0.1, -20, 20);
+    atlasVelocityX = (nextX - atlasTargetX) * 0.025;
+    atlasVelocityY = (nextY - atlasTargetY) * 0.025;
+    atlasTargetX = nextX;
+    atlasTargetY = nextY;
+    atlasRig.style.setProperty("--gesture-intensity", "1");
+  });
+
+  const releaseAtlas = (event) => {
+    if (!isAtlasDragging) return;
+    isAtlasDragging = false;
+    atlasRig.classList.remove("is-dragging");
+    atlasRig.releasePointerCapture?.(event.pointerId);
+    document.body.classList.remove("is-gesture-active");
+    setAtlasTargetFromPointer(latestPointer.x, latestPointer.y, 0.94);
+    pointerBurst = Math.max(pointerBurst, 9);
+  };
+
+  atlasRig.addEventListener("pointerup", releaseAtlas);
+  atlasRig.addEventListener("pointercancel", releaseAtlas);
+}
+
+renderAtlasTilt();
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
